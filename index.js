@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const request = require('request-promise-native');
 const cheerio = require('cheerio');
@@ -22,7 +22,7 @@ exports.handler = (event, context, callback) => {
             };
         }
         return opt;
-    }
+    };
 
     // Resolve relative and absolute URLs to full url
     const resolveUrl = (baseUrl, assetUrl) => {
@@ -31,7 +31,7 @@ exports.handler = (event, context, callback) => {
             return mUrl.resolve(baseUrl, assetUrl);
         }
         return assetUrl;
-    }
+    };
 
     getPreview(getOptions(url, true)).then(preview => {
         // console.log(preview);

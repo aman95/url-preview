@@ -1,0 +1,35 @@
+{
+  "name": "url_preview",
+  "version": "1.0.0",
+  "description": "URL Preview generator",
+  "main": "index.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "gm": "^1.23.1",
+    "npm": "^6.1.0",
+    "request": "^2.87.0",
+    "request-image-size": "^2.1.0",
+    "request-promise-native": "^1.0.5",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aman95/url-preview.git"
+  },
+  "keywords": [
+    "nodejs",
+    "url",
+    "meta",
+    "tags"
+  ],
+  "author": "Aman Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aman95/url-preview/issues"
+  },
+  "homepage": "https://github.com/aman95/url-preview#readme"
+}

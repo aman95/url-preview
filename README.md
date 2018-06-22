@@ -9,9 +9,23 @@ Easily deployable to AWS Lambda function.
 
 *Response format:*
 
-	{
-		"url": "https://www.google.com",
-		"title": "Google",
-		"description": "Let the matches begin! Celebrate ⚽ around the 🌎🌍🌏 in today's #GoogleDoodle!",
-		"image": "https://www.google.com/logos/doodles/2018/world-cup-2018-day-9-5987135852118016.2-2xa.gif"
-	}
+`
+{
+	"url": "https://www.google.com",
+	"title": "Google",
+	"description": "Let the matches begin! Celebrate ⚽ around the 🌎🌍🌏 in today's #GoogleDoodle!",
+	"image": "https://www.google.com/logos/doodles/2018/world-cup-2018-day-9-5987135852118016.2-2xa.gif"
+}`
+
+## How to install
+
+1. Clone repo
+
+	`git clone https://github.com/aman95/url-preview.git`
+	
+2. Install dependencies
+
+	`npm install`
+	
+3. Create zip file of the folder
+4. Save zip file on S3 bucket and use it with lambda function
