@@ -1,4 +1,6 @@
-# URL Preview Generator
+# URL Preview
+
+http://xpreview.herokuapp.com/?url=www.google.com
 
 A tool developed in Node.js to generate preview of urls.
 
