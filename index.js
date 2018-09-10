@@ -8,7 +8,13 @@ const requestImageSize = require('request-image-size');
 exports.handler = (event, context, callback) => {
 
     const userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36';
-    const url = event.url;
+    let url = event.url;
+    
+    if(event.url.substr(0,6) === 'http://' || event.url.substr(0,7) === 'https://') {
+        url = event.url;
+    } else {
+        url = 'http://'+event.url;
+    }
     var getOptions = (p_url, transform=false) => {
         var opt = {
             url: p_url,
@@ -26,6 +32,7 @@ exports.handler = (event, context, callback) => {
 
     // Resolve relative and absolute URLs to full url
     const resolveUrl = (baseUrl, assetUrl) => {
+        if(!baseUrl || !assetUrl) return undefined;
         let obj = mUrl.parse(assetUrl);
         if(!obj.host) {
             return mUrl.resolve(baseUrl, assetUrl);
@@ -72,7 +79,7 @@ exports.handler = (event, context, callback) => {
             $('img:not([src*="data:image"])').each((index, element) => {
                 let image_url = resolveUrl(url, $(element).attr('src'));
                 image_url = resolveUrl(url, image_url);
-                imgArray.unshift(image_url);
+                if(image_url) imgArray.unshift(image_url);
             });
             for(var i in imgArray) {
                 let p = await getAreaOfImage(getOptions(imgArray[i]));
@@ -96,7 +103,7 @@ exports.handler = (event, context, callback) => {
             image[2] = maxSize.size > 0 ? maxSize.url : null;
         }
 
-        image[3] = 'https://www.tagtaste.com/images/icons/preview_default.png';
+        image[3] = null;
         
         data.image = image[0] || image[1] || image[2] || image[3];
 
